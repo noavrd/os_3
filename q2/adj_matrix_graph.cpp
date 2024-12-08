@@ -5,11 +5,11 @@
 #include <stack>
 
 class AdjMatrixGraph : public Graph {
-    int V;
+    int vertex;
     std::vector<std::vector<bool>> adj;
 
 public:
-    AdjMatrixGraph(int V) : V(V), adj(V + 1, std::vector<bool>(V + 1, false)) {}
+    AdjMatrixGraph(int vertex) : vertex(vertex), adj(vertex + 1, std::vector<bool>(vertex + 1, false)) {}
 
     void addEdge(int u, int v) override {
         adj[u][v] = true;

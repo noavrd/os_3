@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-Graph::Graph(int V) : V(V), adj(V + 1), rev_adj(V + 1) {}
+Graph::Graph(int vertex) : vertex(vertex), adj(vertex + 1), rev_adj(vertex + 1) {}
 
 void Graph::addEdge(int u, int v) {
     adj[u].push_back(v);
@@ -29,10 +29,10 @@ void Graph::dfs(int v, std::vector<bool>& visited, std::vector<int>& component) 
 
 void Graph::printSCCs() {
     std::stack<int> Stack;
-    std::vector<bool> visited(V + 1, false);
+    std::vector<bool> visited(vertex + 1, false);
 
     // Fill vertices in stack according to their finishing times
-    for (int i = 1; i <= V; i++) {
+    for (int i = 1; i <= vertex; i++) {
         if (!visited[i])
             fillOrder(i, visited, Stack);
     }

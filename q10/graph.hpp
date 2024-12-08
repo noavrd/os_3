@@ -8,6 +8,9 @@ public:
     virtual void removeEdge(int u, int v) = 0;
     virtual void runKosaraju() = 0;
     virtual ~Graph() = default;
+    int getNodeCount() const { return v; }
+private:
+    int v;
 };
 
 #endif 

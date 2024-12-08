@@ -1,4 +1,4 @@
-// graph.hpp
+
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
@@ -10,4 +10,4 @@ public:
     virtual ~Graph() = default;
 };
 
-#endif // GRAPH_HPP
+#endif 

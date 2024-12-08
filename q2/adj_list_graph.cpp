@@ -6,11 +6,11 @@
 #include <stack>
 
 class AdjListGraph : public Graph {
-    int V;
+    int vertex;
     std::vector<std::list<int>> adj;
 
 public:
-    AdjListGraph(int V) : V(V), adj(V + 1) {}
+    AdjListGraph(int vertex) : vertex(vertex), adj(vertex + 1) {}
 
     void addEdge(int u, int v) override {
         adj[u].push_back(v);

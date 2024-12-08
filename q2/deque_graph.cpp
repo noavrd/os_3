@@ -7,12 +7,12 @@
 #include <algorithm>
 
 class DequeGraph : public Graph {
-    int V;
+    int vertex;
     std::vector<std::deque<int>> adj;
     std::vector<std::deque<int>> rev_adj;
 
 public:
-    DequeGraph(int V) : V(V), adj(V + 1), rev_adj(V + 1) {}
+    DequeGraph(int vertex) : vertex(vertex), adj(vertex + 1), rev_adj(vertex + 1) {}
 
     void addEdge(int u, int v) override {
         adj[u].push_back(v);
@@ -21,9 +21,9 @@ public:
 
     void runKosaraju() override {
         std::stack<int> Stack;
-        std::vector<bool> visited(V + 1, false);
+        std::vector<bool> visited(vertex + 1, false);
 
-        for (int i = 1; i <= V; i++)
+        for (int i = 1; i <= vertex; i++)
             if (!visited[i])
                 fillOrder(i, visited, Stack);
 

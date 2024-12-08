@@ -5,12 +5,12 @@
 #include <stack>
 
 class Graph {
-    int V; // Number of vertices
+    int vertex; // Number of vertices
     std::vector<std::vector<int>> adj; // Adjacency list for the graph
     std::vector<std::vector<int>> rev_adj; // Adjacency list for the reversed graph
 
 public:
-    Graph(int V);
+    Graph(int vertex);
 
     void addEdge(int u, int v);
     void printSCCs();
