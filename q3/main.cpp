@@ -1,6 +1,5 @@
-// main.cpp
 #include "graph.hpp"
-#include "deque_graph.cpp"  // or include "list_graph.cpp" if using ListGraph
+#include "deque_graph.cpp"  
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -16,22 +15,26 @@ int main() {
         std::string command;
         input >> command;
 
+        // Create Newgraph
         if (command == "Newgraph") {
             int n, m;
             input >> n >> m;
-            delete graph;  // Clean up any existing graph
+            // Clean up any existing graph
+            delete graph;
             graph = new SelectedGraph(n);
 
             // Read m edges and add them to the graph
             for (int i = 0; i < m; ++i) {
                 int u, v;
-                std::getline(std::cin, line);  // Read next edge
+                // Read next edge
+                std::getline(std::cin, line); 
                 std::istringstream edgeInput(line);
                 edgeInput >> u >> v;
                 graph->addEdge(u, v);
             }
             std::cout << "Graph created with " << n << " vertices and " << m << " edges." << std::endl;
 
+        // Do Kosaraju
         } else if (command == "Kosaraju") {
             if (graph) {
                 graph->runKosaraju();
@@ -39,6 +42,7 @@ int main() {
                 std::cerr << "No graph available. Use Newgraph command first." << std::endl;
             }
 
+        // Add New edge
         } else if (command == "Newedge") {
             int u, v;
             input >> u >> v;
@@ -49,6 +53,7 @@ int main() {
                 std::cerr << "No graph available. Use Newgraph command first." << std::endl;
             }
 
+        // Remove edge
         } else if (command == "Removeedge") {
             int u, v;
             input >> u >> v;

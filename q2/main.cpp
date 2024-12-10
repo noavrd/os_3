@@ -1,4 +1,3 @@
-// main.cpp
 #include "graph.hpp"
 #include <iostream>
 

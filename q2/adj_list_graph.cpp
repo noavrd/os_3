@@ -1,4 +1,3 @@
-// adj_list_graph.cpp
 #include "graph.hpp"
 #include <iostream>
 #include <vector>

@@ -1,4 +1,3 @@
-// deque_graph.cpp
 #include "graph.hpp"
 #include <iostream>
 #include <deque>
@@ -48,7 +47,8 @@ public:
             }
         }
 
-        std::cout << output.str();  // Output Kosaraju result to stdout (for debugging/logging)
+        // Output Kosaraju result 
+        std::cout << output.str(); 
     }
 
 private:

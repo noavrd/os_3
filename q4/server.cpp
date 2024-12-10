@@ -1,4 +1,3 @@
-// server.cpp
 #include "deque_graph.cpp"
 #include <iostream>
 #include <sstream>
@@ -21,7 +20,8 @@ void handleClientCommand(int client_fd, DequeGraph& graph, const std::string& co
     if (cmd == "Newgraph") {
         int n, m;
         input >> n >> m;
-        graph = DequeGraph(n);  // Reinitialize graph
+        // Reinitialize graph
+        graph = DequeGraph(n); 
 
         for (int i = 0; i < m; i++) {
             std::string edgeLine;
@@ -36,7 +36,8 @@ void handleClientCommand(int client_fd, DequeGraph& graph, const std::string& co
 
     } else if (cmd == "Kosaraju") {
         std::ostringstream resultStream;
-        graph.runKosaraju();  // Run the algorithm and output to stdout (can modify to store in resultStream)
+        // Run the algorithm and output to terminal
+        graph.runKosaraju();  
         std::string result = resultStream.str();
         send(client_fd, result.c_str(), result.length(), 0);
 
@@ -57,7 +58,8 @@ void handleClientCommand(int client_fd, DequeGraph& graph, const std::string& co
 }
 
 int main() {
-    int listener; // Listening socket descriptor
+    // Listening socket descriptor
+    int listener; 
     struct sockaddr_in server_addr;
     
     // Create a new graph shared across clients
